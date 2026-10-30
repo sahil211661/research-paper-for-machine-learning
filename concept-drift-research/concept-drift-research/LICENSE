@@ -1,0 +1,10 @@
+NO LICENSE HAS BEEN SELECTED YET.
+
+This file is intentionally a placeholder. The project owner (the author of the research paper, subject to
+the regulations of their university and supervisor) must choose the licence for the ORIGINAL code in this
+repository, for example MIT or Apache-2.0, and replace this file with the full licence text and a copyright line
+with their own name and year. Until then, all rights are reserved by default.
+
+Third-party material is NOT covered by any licence chosen for this code:
+  * Elec2 data (obtained via River or a mirror) keep their own terms; the dataset is not redistributed here.
+  * River, NumPy, pandas, SciPy, scikit-learn, matplotlib, seaborn, statsmodels keep their own licences.

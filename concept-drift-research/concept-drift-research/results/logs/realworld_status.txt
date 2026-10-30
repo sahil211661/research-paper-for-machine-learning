@@ -1,0 +1,7 @@
+Real-world validation NOT executed: Elec2 could not be loaded in this environment (documented source unreachable; no local copy in data/raw/). The synthetic study is the completed core experiment. To run Stage B, follow the alternative workflow printed in Section 8 and re-execute the notebook.
+
+Loader message:
+URLError: <urlopen error [Errno -2] Name or service not known>
+Elec2 could not be loaded.
+Documented source: River API  river.datasets.Elec2  (https://riverml.xyz/dev/api/datasets/Elec2/), which downloads https://maxhalford.github.io/files/datasets/electricity.zip.
+Alternative workflow: obtain the same dataset on a machine with internet access (e.g. run `python -c "from river import datasets; datasets.Elec2().download()"`; the file is stored as <river_data>/Elec2/electricity.csv), copy electricity.csv to data/raw/electricity.csv inside this project (columns: date, day, period, nswprice, nswdemand, vicprice, vicdemand, transfer, class), and re-run the notebook/script.  No substitute dataset is used.

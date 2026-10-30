@@ -1,0 +1,9 @@
+scenario,model,policy,n_runs,overall_acc,drift_window_acc,n_adaptations,us_per_obs
+abrupt_swap,gaussian_nb,adwin_replay,10,0.90113,0.8175000000000001,1.0,203.4325557000011
+abrupt_swap,gaussian_nb,none,10,0.83538,0.7092,0.0,182.5609626800042
+abrupt_swap,hoeffding_tree,adwin_replay,10,0.89682,0.8361000000000001,1.5,47.37409390000039
+abrupt_swap,hoeffding_tree,none,10,0.85394,0.7216,0.0,42.90735557000289
+stationary,gaussian_nb,adwin_replay,10,0.9153399999999999,0.9176,0.0,194.69905572999778
+stationary,gaussian_nb,none,10,0.9153399999999999,0.9176,0.0,189.90221617999396
+stationary,hoeffding_tree,adwin_replay,10,0.90746,0.9096,0.7,44.23436437999953
+stationary,hoeffding_tree,none,10,0.9100199999999999,0.9148,0.0,41.67795701999694

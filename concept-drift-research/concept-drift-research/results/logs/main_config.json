@@ -1,0 +1,104 @@
+{
+  "stream": {
+    "length": 10000,
+    "n_features": 3,
+    "feature_low": 0.0,
+    "feature_high": 10.0,
+    "theta_a": 8.0,
+    "theta_threshold_shift": 9.5,
+    "label_noise": 0.05,
+    "abrupt_position": 5000,
+    "gradual_center": 5000,
+    "gradual_widths": [
+      1000,
+      2500
+    ],
+    "recurring_positions": [
+      2500,
+      5000,
+      7500
+    ],
+    "covariate_position": 5000,
+    "covariate_x1_low_after": 3.0
+  },
+  "model": {
+    "primary": "hoeffding_tree",
+    "ht_grace_period": 100,
+    "ht_delta": 1e-05,
+    "ht_leaf_prediction": "nba"
+  },
+  "detector": {
+    "adwin_levels": {
+      "sensitive": {
+        "delta": 0.02
+      },
+      "default": {
+        "delta": 0.002
+      },
+      "conservative": {
+        "delta": 0.0002
+      }
+    },
+    "adwin_direction": "increase",
+    "ph_levels": {
+      "sensitive": {
+        "threshold": 25.0
+      },
+      "default": {
+        "threshold": 50.0
+      },
+      "conservative": {
+        "threshold": 100.0
+      }
+    },
+    "ph_min_instances": 30,
+    "ph_delta": 0.005,
+    "ph_alpha": 0.9999,
+    "ph_mode": "up"
+  },
+  "adaptation": {
+    "fixed_window": 2000,
+    "replay_size": 500
+  },
+  "eval": {
+    "rolling_window": 200,
+    "pre_window": 1000,
+    "post_window": 1000,
+    "detection_tolerance": 1000,
+    "recovery_fraction": 0.95,
+    "recovery_hold": 200,
+    "recovery_fraction_sensitivity": [
+      0.9,
+      0.95,
+      0.98
+    ],
+    "positive_class": 1
+  },
+  "run": {
+    "profile": "full",
+    "base_seed": 20260101,
+    "n_seeds": 20,
+    "n_bootstrap": 5000,
+    "alpha": 0.05,
+    "memory_runs": 3,
+    "scenarios": [
+      "stationary",
+      "covariate_shift",
+      "abrupt_swap",
+      "abrupt_threshold",
+      "gradual_swap_w1000",
+      "gradual_swap_w2500",
+      "recurring_swap"
+    ]
+  },
+  "paths": {
+    "root": "/home/claude/concept-drift-research",
+    "results": "results",
+    "tables": "results/tables",
+    "raw": "results/raw",
+    "logs": "results/logs",
+    "figures": "figures",
+    "data_raw": "data/raw",
+    "data_processed": "data/processed"
+  }
+}

@@ -1,0 +1,15 @@
+.venv/
+venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.pytest_cache/
+*.egg-info/
+.DS_Store
+# downloaded datasets (re-obtainable; see data/README.md)
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+# large generated artifacts (regenerate with scripts/run_experiments.py)
+results/logs/*.npz

@@ -1,0 +1,86 @@
+# Primary experiment configuration.  Loaded by src/config.py::load_config.
+# Every constant used by the experiments is defined here; profiles override it.
+stream:
+  length: 10000
+  n_features: 3
+  feature_low: 0.0
+  feature_high: 10.0
+  theta_a: 8.0
+  theta_threshold_shift: 9.5
+  label_noise: 0.05
+  abrupt_position: 5000
+  gradual_center: 5000
+  gradual_widths: [1000, 2500]
+  recurring_positions: [2500, 5000, 7500]
+  covariate_position: 5000
+  covariate_x1_low_after: 3.0
+
+model:
+  primary: hoeffding_tree
+  ht_grace_period: 100
+  ht_delta: 1.0e-5
+  ht_leaf_prediction: nba
+
+detector:
+  adwin_levels:
+    sensitive: {delta: 0.02}
+    default: {delta: 0.002}        # River default
+    conservative: {delta: 0.0002}
+  adwin_direction: increase        # only error *increases* raise an accepted alarm
+  ph_levels:
+    sensitive: {threshold: 25.0}
+    default: {threshold: 50.0}     # River default
+    conservative: {threshold: 100.0}
+  ph_min_instances: 30
+  ph_delta: 0.005
+  ph_alpha: 0.9999
+  ph_mode: up
+
+adaptation:
+  fixed_window: 2000
+  replay_size: 500
+
+eval:
+  rolling_window: 200
+  pre_window: 1000
+  post_window: 1000
+  detection_tolerance: 1000
+  recovery_fraction: 0.95
+  recovery_hold: 200
+  recovery_fraction_sensitivity: [0.90, 0.95, 0.98]
+  positive_class: 1
+
+run:
+  base_seed: 20260101
+  n_seeds: 20
+  n_bootstrap: 5000
+  alpha: 0.05
+  memory_runs: 3
+  scenarios:
+    - stationary
+    - covariate_shift
+    - abrupt_swap
+    - abrupt_threshold
+    - gradual_swap_w1000
+    - gradual_swap_w2500
+    - recurring_swap
+
+# Profiles override the sections above.  "smoke" is ONLY a quick pipeline check
+# and must never be reported as the experimental result.
+profiles:
+  full: {}
+  smoke:
+    stream:
+      length: 3000
+      abrupt_position: 1500
+      gradual_center: 1500
+      gradual_widths: [300, 800]
+      recurring_positions: [750, 1500, 2250]
+      covariate_position: 1500
+    adaptation: {fixed_window: 600, replay_size: 200}
+    eval: {pre_window: 400, post_window: 400, detection_tolerance: 400, rolling_window: 100, recovery_hold: 100}
+    run:
+      n_seeds: 3
+      n_bootstrap: 500
+      memory_runs: 1
+      scenarios: [stationary, covariate_shift, abrupt_swap, abrupt_threshold, gradual_swap_w300, gradual_swap_w800, recurring_swap]

@@ -1,0 +1,15 @@
+python 3.12.3
+platform Linux-6.18.44-fc-v185-x86_64-with-glibc2.39
+river==0.26.1
+numpy==2.4.4
+pandas==3.0.2
+scipy==1.17.1
+scikit-learn==1.8.0
+matplotlib==3.10.8
+seaborn==0.13.2
+statsmodels==0.15.0
+PyYAML==6.0.3
+ipython==9.17.1
+pytest==9.1.1
+nbformat==5.11.1
+psutil==7.2.2
